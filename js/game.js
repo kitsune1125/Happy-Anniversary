@@ -90,7 +90,7 @@
     const currentRound=round;
     $('openLetter').disabled=true;$('envelopeArea').hidden=true;
     $('letterPaper').hidden=false;
-    $('lh').textContent='Dear '+cfg.her+',';
+    $('lh').textContent='Dear Lovely,';
     $('sig').textContent='Always yours, '+cfg.me+' ♡';
     $('skipTyping').hidden=false;
     Anim.burst($('letterPaper'));
