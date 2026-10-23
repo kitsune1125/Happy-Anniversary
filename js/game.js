@@ -1,4 +1,3 @@
-// Hot / warm / cold heart hunt, two direction hints, and a love-letter reveal.
 (function () {
   'use strict';
   const cfg=window.CONFIG,$=id=>document.getElementById(id);
