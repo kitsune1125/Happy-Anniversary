@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff9f5">
+  <meta name="description" content="Happy Monthsary! A little adventure full of our favorite memories, made just for you.">
+  <title>Happy Monthsary, Lovely ♡ | Find My Heart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="page-texture" aria-hidden="true"></div>
+  <header class="site-header container">
+    <a class="brand" href="#home" aria-label="Back to the beginning"><span class="brand-icon">♥</span> made with love <span class="brand-sparkle">✳</span></a>
+    <div class="header-actions">
+      <span class="top-chapter">A little adventure, just for you</span>
+      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false" aria-label="Play music"><span class="music-symbol">♫</span><span id="musicLabel">Play our song</span><span class="music-wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="little-star">✳</span> A SPECIAL DELIVERY <span class="eyebrow-line"></span> 01 / FOREVER</div>
+        <h1>I think you<br>have my <span class="italic-word">heart<span class="sketch-underline" aria-hidden="true"></span></span><span class="title-period">.</span></h1>
+        <p id="introText" class="hero-description">So, I made you a little something. A tiny adventure with a few surprises hidden along the way.</p>
+        <div class="hero-actions">
+          <button id="beginBtn" class="btn btn-primary" type="button">Let's find it <span aria-hidden="true">↗</span></button>
+          <span class="tiny-side-note">psst... turn your sound on <span aria-hidden="true">↗</span></span>
+        </div>
+        <div class="hero-caption"><span class="pin-dot"></span> no rush, the best things are worth finding</div>
+      </div>
+      <div class="hero-art">
+        <div class="stamp stamp-top" aria-hidden="true">ONLY<br>FOR<br>YOU <span>✳</span></div>
+        <button id="postcardBtn" class="postcard" type="button" aria-label="Flip the little postcard">
+          <span class="postcard-front">
+            <span class="postcard-topline">TO: MY FAVORITE HUMAN</span>
+            <span class="postcard-heart" aria-hidden="true">♥</span>
+            <span class="postcard-hand">a little piece of me,<br>just for you ♡</span>
+            <span class="postcard-bottom">WITH ALL MY LOVE <span>↗</span></span>
+          </span>
+          <span class="postcard-back">
+            <span class="postcard-hand postcard-back-heading">psst, one thing...</span>
+            <span id="postcardMessage" class="postcard-back-message">You make my ordinary days feel a little more special.</span>
+            <span class="postcard-bottom">TAP TO FLIP BACK <span>↶</span></span>
+          </span>
+        </button>
+        <div class="stamp stamp-bottom" aria-hidden="true">100%<br>LOVE<br>INSIDE ♡</div>
+        <span class="art-doodle doodle-one" aria-hidden="true">✧</span>
+        <span class="art-doodle doodle-two" aria-hidden="true">♡</span>
+      </div>
+    </section>
+
+    <div class="separator container"><span>♡</span><span>♡</span><span>♡</span></div>
+
+    <section class="section container hunt-section" id="hunt">
+      <div class="section-heading centered">
+        <div class="eyebrow">CHAPTER 01 <span class="dot-divider">•</span> THE LITTLE SEARCH</div>
+        <h2>Okay, <em>find my heart.</em></h2>
+        <p id="sub">It's hiding somewhere in the squares. Tap around, and I'll tell you if you're getting warmer.</p>
+      </div>
+      <div class="game-shell">
+        <div class="game-top"><span class="game-top-left"><span class="mini-heart">♥</span> HEART DETECTOR 3000</span><span class="game-top-right">EST. WITH LOVE ♡</span></div>
+        <div class="game-body">
+          <div class="game-progress-head"><span>YOUR SEARCH</span><span id="tries">0 / 20 explored</span></div>
+          <div class="game-progress" role="progressbar" aria-label="Squares explored" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="gameProgress"><span id="gameFill"></span></div>
+          <div class="grid" id="grid" aria-label="Find the hidden heart"></div>
+          <div class="game-feedback">
+            <div class="temperature"><span class="temperature-icon" id="tempIcon">♡</span><div><span class="small-label">CURRENT SIGNAL</span><p id="status" role="status" aria-live="polite">Where could it be?</p></div></div>
+            <button id="hintBtn" class="hint-btn" type="button" title="Ask for a direction hint">✦ <span id="hintLabel">Need a hint? (2)</span></button>
+          </div>
+          <p id="clueText" class="clue-text" aria-live="polite"></p>
+          <div class="legend"><span><i class="color-hot"></i>Super close</span><span><i class="color-warm"></i>Getting warm</span><span><i class="color-cold"></i>A bit far</span></div>
+        </div>
+        <div class="game-footer">ONE SPECIAL HEART <span>✧</span> JUST WAITING TO BE FOUND</div>
+      </div>
+      <div id="tinyNote" class="tiny-note" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="section container reveal-section" id="letter" hidden>
+      <div class="section-heading centered">
+        <div class="eyebrow">CHAPTER 02 <span class="dot-divider">•</span> FROM ME TO YOU</div>
+        <h2>You found <em>my heart!</em> ♡</h2>
+        <p>And I think it has something it wants to tell you.</p>
+      </div>
+      <div id="envelopeArea" class="envelope-area">
+        <button id="openLetter" class="envelope-button" type="button" aria-label="Open your love letter">
+          <span class="envelope-back"></span><span class="envelope-note">a letter for you ♡</span><span class="envelope-flap"></span><span class="envelope-front"></span><span class="wax-seal">♥</span>
+        </button>
+        <p class="handwritten-prompt">tap to open me! <span>↗</span></p>
+      </div>
+      <article id="letterPaper" class="letter-paper" hidden>
+        <div class="paper-header"><span>LOVE LETTER NO. 01</span><span>✻ &nbsp; FOR YOU</span></div>
+        <div class="paper-content"><span class="paper-quote" aria-hidden="true">“</span><h3 id="lh"></h3><div id="lb" class="letter-body"></div><p id="sig" class="signature"></p></div>
+        <div class="paper-footer"><span>sealed with all of my love</span><span>♥</span></div>
+        <button id="skipTyping" class="text-button" type="button" hidden>Show the whole letter ↓</button>
+      </article>
+      <div id="photoReveal" class="photo-reveal" hidden>
+        <figure class="polaroid"><img id="photo" src="images/Us.jpg" alt="A photo of us together" loading="eager"><figcaption id="caption"></figcaption></figure>
+        <p class="photo-aside">and if I had to do it all over again,<br><em>I'd still choose you.</em> <span aria-hidden="true">♡</span></p>
+      </div>
+    </section>
+
+    <section class="section container extras-section" id="extras" hidden>
+      <div class="section-heading centered"><div class="eyebrow">CHAPTER 03 <span class="dot-divider">•</span> LITTLE THINGS, BIG FEELINGS</div><h2>Wait... there's <em>more.</em></h2><p>A few more reasons why you're my favorite person.</p></div>
+      <div class="extras-grid">
+        <article class="extra-card jar-card"><div class="extra-card-top"><span>01 / THE LOVE JAR</span><span>✳</span></div><h3>Reasons why<br><em>I adore you.</em></h3><div class="jar-visual" aria-hidden="true"><span class="jar-lid"></span><span class="jar-body"><span>♡</span><i></i><i></i><i></i></span></div><div class="note-paper" id="jarNote" aria-live="polite">Press the button and pull out a little love note.</div><button id="jarBtn" class="btn btn-outline" type="button">Pick a little note <span aria-hidden="true">↻</span></button></article>
+        <article class="extra-card memory-card"><div class="extra-card-top"><span>02 / OUR LITTLE MOMENTS</span><span>✳</span></div><h3>Every little<br><em>moment counts.</em></h3><div class="memory-frame" id="memoryFrame" aria-live="polite"><div class="memory-number" id="memoryNumber">01 / 05</div><div class="memory-emoji" id="memoryEmoji"></div><h4 id="memoryTitle"></h4><p id="memoryText"></p></div><p class="picture-tip">Tap the photo to see the whole picture ♡</p><div class="memory-controls"><button id="memoryPrev" type="button" aria-label="Previous memory">←</button><span id="memoryDots" aria-label="Memory position"></span><button id="memoryNext" type="button" aria-label="Next memory">→</button></div></article>
+      </div>
+      <div class="letters-panel"><div class="letters-head"><div><span class="eyebrow">03 / JUST IN CASE</span><h3>Open when you need <em>a little love.</em></h3><p>Three tiny letters for three different kinds of days.</p></div><span class="letters-decoration" aria-hidden="true">✉</span></div><div id="openWhens" class="open-when-grid"></div><div id="openWhenMessage" class="open-when-message" hidden aria-live="polite"></div></div>
+    </section>
+
+    <section class="section container final-section" id="lastSurprise" hidden>
+      <div class="section-heading centered"><div class="eyebrow">THE FINAL SURPRISE <span class="dot-divider">•</span> SHHH, IT'S A SECRET</div><h2>One <em>last thing...</em></h2><p>Use your finger or mouse to scratch the card. There's a message underneath.</p></div>
+      <div class="scratch-frame"><div class="scratch-inner" id="scratchArea"><div class="scratch-secret" id="scratchSecret"></div><canvas id="scratchCanvas" aria-label="Scratch the pink covering to uncover the secret message"></canvas><div class="scratch-cover-label" id="scratchLabel" aria-hidden="true"><span>✳</span> SCRATCH TO REVEAL <span>♡</span></div></div></div>
+      <button id="revealScratch" class="text-button reveal-help" type="button">Can't scratch? Reveal the message instead ↗</button>
+      <div id="finalActions" class="final-actions" hidden><p class="final-handwriting">I really, really love you. ♡</p><button class="btn btn-primary" id="again" type="button">Play our little game again <span>↻</span></button><button class="btn btn-outline" id="shareBtn" type="button">Copy a little love note <span>↗</span></button><span id="copyStatus" class="copy-status" aria-live="polite"></span></div>
+    </section>
+  </main>
+
+  <dialog id="photoLightbox" class="photo-lightbox" aria-label="Full-size photograph">
+    <button id="closeLightbox" class="lightbox-close" type="button" aria-label="Close photo viewer">✕</button>
+    <img id="lightboxImage" alt="" loading="eager">
+    <p id="lightboxCaption"></p>
+  </dialog>
+
+  <footer class="site-footer container"><span>handmade with ♡</span><span id="footerName">always yours</span><span>∞ &amp; a little more</span></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/surprises.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
